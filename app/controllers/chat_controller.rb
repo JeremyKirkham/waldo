@@ -1,4 +1,6 @@
 class ChatController < ApplicationController
+  include Secured
+
   def chat
 
   end
@@ -12,12 +14,12 @@ class ChatController < ApplicationController
     response = lex.post_text({
       bot_name: "CoffeeBot",
       bot_alias: "Jarvis",
-      user_id: "abc",
+      user_id: current_user.auth0,
       input_text: params[:text],
     })
 
-    ActionCable.server.broadcast(
-      'chat',
+    ChatChannel.broadcast_to(
+      current_user,
       title: 'Response',
       response: response
     )

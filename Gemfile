@@ -26,7 +26,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 3.0'
+# gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -35,6 +35,12 @@ gem 'redis', '~> 3.0'
 
 # AWS SDK for rails
 gem 'aws-sdk-rails'
+
+# Authentication with Auth0
+gem 'auth0'
+gem 'omniauth', '~> 1.3.1'
+gem 'omniauth-auth0', '~> 1.4.2'
+gem 'redis-rails'
 
 # Jquery and styling
 gem 'jquery-rails'
@@ -49,6 +55,8 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
