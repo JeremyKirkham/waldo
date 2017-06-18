@@ -20,8 +20,7 @@ function sendChat() {
   $('#chat_loader').show();
   var text = $('#chat_text').val();
   $('#chat_text').val('').focus();
-  var cw = $('#chat_window');
-  cw.append('<div class="msg msg-user"><span>' + text + '</span></div>').scrollTop(cw.prop("scrollHeight"));
+
   jQuery.ajax({
     method: "POST",
     url: '/chat_text',

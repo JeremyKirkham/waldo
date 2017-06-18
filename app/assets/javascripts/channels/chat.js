@@ -15,6 +15,12 @@ App.messages = App.cable.subscriptions.create('ChatChannel', {
   appendMessage: function(data) {
     $('#chat_loader').hide();
     var cw = $('#chat_window');
-    cw.append('<div class="msg msg-waldo"><span class="blue-text text-darken-2">' + data.response.message + '</span></div>').scrollTop(cw.prop("scrollHeight"));
+    console.log(data);
+    if (data.direction == 'from') {
+      cw.append('<div class="msg msg-user"><span>' + data.response.message + '</span></div>').scrollTop(cw.prop("scrollHeight"));
+    } else {
+      cw.append('<div class="msg msg-waldo"><span class="blue-text text-darken-2">' + data.response.message + '</span></div>').scrollTop(cw.prop("scrollHeight"));
+    }
+
   }
 });

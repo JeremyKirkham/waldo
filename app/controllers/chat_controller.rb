@@ -6,6 +6,14 @@ class ChatController < ApplicationController
   end
 
   def post_text
+    message = Message.create({
+      user: current_user,
+      direction: "from",
+      response: {
+        message: params[:text]
+      }
+    })
+
     lex = Aws::Lex::Client.new(
       access_key_id: Rails.application.secrets.aws_access_key,
       secret_access_key: Rails.application.secrets.aws_secret_access_key,
@@ -18,10 +26,10 @@ class ChatController < ApplicationController
       input_text: params[:text],
     })
 
-    ChatChannel.broadcast_to(
-      current_user,
-      title: 'Response',
+    message = Message.create({
+      user: current_user,
+      direction: "to",
       response: response
-    )
+    })
   end
 end
