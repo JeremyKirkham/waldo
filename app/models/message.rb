@@ -2,6 +2,7 @@ class Message < ApplicationRecord
   belongs_to :user
   validates :user, presence: true
   validates :direction, presence: true
+  attr_accessor :message
   after_create :broadcast
 
   def broadcast

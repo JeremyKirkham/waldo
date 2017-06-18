@@ -12,8 +12,7 @@
         </div>
         <div class="row">
           <div id="chat_form" class="col s12">
-            <input id="chat_text" placeholder="Chat with me"></input>
-            <!-- <a class="waves-effect waves-light btn" id="submit_chat">Send</a> -->
+            <%= render partial: 'messages/message_form', locals: {message: @message} %>
             <div id="loader_container">
               <div class="progress" id="chat_loader">
                 <div class="indeterminate"></div>
