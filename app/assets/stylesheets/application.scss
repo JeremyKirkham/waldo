@@ -9,7 +9,7 @@ body {
 
 #chat_container {
   background: #ffffff;
-  border: solid 1px #f2f2f2;
+  border: solid 1px #ccc;
   border-radius: 2px;
 
   #loader_container {
@@ -27,6 +27,7 @@ body {
   #chat_window {
     height: 300px;
     overflow-y: scroll;
+    border-bottom: solid 1px #ccc;
     .msg {
       margin: 10px;
       padding: 20px 10px;
@@ -41,7 +42,6 @@ body {
       background: #c8e6c9;
     }
   }
-
   #chat_text:focus {
     border-bottom: 1px solid #1565c0 !important;
     box-shadow: 0 1px 0 0 #e3f2fd !important;

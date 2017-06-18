@@ -35,7 +35,7 @@ $(document).ready(function() {
     $('#chat_text').focus();
   }, 200);
   setTimeout(function(){
-    $('#chat_window').append('<div class="msg msg-waldo"><span class="blue-text text-darken-2">Hi, I\'m Waldo 1.0. What can I help you with?</span></div>');
+    $('#chat_window').append('<div class="msg msg-waldo"><span class="blue-text text-darken-2">Hi, I\'m Waldo. What can I help you with?</span></div>');
   }, 1000);
 
   $('#chat_text').keydown(function(event) {
