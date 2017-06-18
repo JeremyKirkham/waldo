@@ -1,0 +1,49 @@
+// *= require_self
+// *= require_tree .
+@import "materialize";
+@import "material_icons";
+
+body {
+  background: #f2f2f2;
+}
+
+#chat_container {
+  background: #ffffff;
+  border: solid 1px #f2f2f2;
+  border-radius: 2px;
+
+  #loader_container {
+    height: 15px;
+    overflow-y: hidden;
+    #chat_loader {
+      display: none;
+      background: #e3f2fd;
+      .indeterminate {
+        background: #1565c0;
+      }
+    }
+  }
+
+  #chat_window {
+    height: 300px;
+    overflow-y: scroll;
+    .msg {
+      margin: 10px;
+      padding: 20px 10px;
+      width: 60%;
+    }
+    .msg-waldo {
+      float: right;
+      background: #e3f2fd;
+    }
+    .msg-user {
+      float: left;
+      background: #c8e6c9;
+    }
+  }
+
+  #chat_text:focus {
+    border-bottom: 1px solid #1565c0 !important;
+    box-shadow: 0 1px 0 0 #e3f2fd !important;
+  }
+}

@@ -2,8 +2,20 @@ version: '3'
 services:
   db:
     image: postgres
+    labels:
+      au.com.streame.project: "waldo"
+    ports:
+      - "5433:5432"
+  redis:
+    image: redis
+    labels:
+      au.com.streame.project: "waldo"
+    ports:
+      - '6379:6379'
   web:
     build: .
+    labels:
+      au.com.streame.project: "waldo"
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/waldo
