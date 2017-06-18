@@ -55,6 +55,8 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
