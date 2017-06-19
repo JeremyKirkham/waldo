@@ -12,19 +12,14 @@ body {
   border: solid 1px #ccc;
   border-radius: 2px;
 
-  #loader_container {
-    height: 15px;
-    overflow-y: hidden;
-    #chat_loader {
-      display: none;
-      background: #e3f2fd;
-      .indeterminate {
-        background: #1565c0;
-      }
-    }
+  #prev {
+    padding: 4px;
+    font-size: 1em;
+    text-align: center;
   }
 
   #chat_window {
+
     height: 300px;
     overflow-y: scroll;
     border-bottom: solid 1px #ccc;
@@ -45,5 +40,17 @@ body {
   #chat_text:focus {
     border-bottom: 1px solid #1565c0 !important;
     box-shadow: 0 1px 0 0 #e3f2fd !important;
+  }
+
+  #loader_container {
+    height: 15px;
+    overflow-y: hidden;
+    #chat_loader {
+      display: none;
+      background: #e3f2fd;
+      .indeterminate {
+        background: #1565c0;
+      }
+    }
   }
 }
