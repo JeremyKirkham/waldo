@@ -7,10 +7,5 @@ class ChatController < ApplicationController
 
   def delete_history
     current_user.messages.destroy_all
-    if request.xhr?
-      render :json => {
-        :completed => true
-      }
-    end
   end
 end
