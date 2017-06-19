@@ -16,6 +16,8 @@ class Message < ApplicationRecord
     )
   end
 
+  private
+
   def lexify
     lex = Aws::Lex::Client.new(
       access_key_id: Rails.application.secrets.aws_access_key,
@@ -32,7 +34,14 @@ class Message < ApplicationRecord
     message = Message.create({
       user: user,
       direction: "to",
-      response: rsp
+      response: format_response(rsp)
     })
+  end
+
+  def format_response(response)
+    if response.message.nil? && response.dialog_state == "ReadyForFulfillment"
+      response.message = "Your order has been placed, thanks for chatting with me."
+    end
+    response
   end
 end

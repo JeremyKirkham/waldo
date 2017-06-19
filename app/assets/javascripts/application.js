@@ -36,10 +36,10 @@ $(document).ready(function() {
 
   $('#delete_history').bind('ajax:complete', function() {
     setTimeout(function(){
-      $('#chat_loader').hide();
       $('#chat_window').html('');
+      $('#chat_loader').hide();
       setTimeout(function(){
-        $('#chat_window').append('<div class="msg msg-to"><span class="blue-text text-darken-2">Hi, I\'m Waldo. What can I help you with?</span></div>');
+        $('#chat_window').append('<div class="msg msg-to"><span class="blue-text text-darken-2">Your chat history has been deleted, is there anything else I can help you with?</span></div>');
       }, 1300);
     }, 1000);
   });
