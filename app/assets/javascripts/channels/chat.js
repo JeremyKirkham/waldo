@@ -13,8 +13,11 @@ App.messages = App.cable.subscriptions.create('ChatChannel', {
     this.appendMessage(data);
   },
   appendMessage: function(data) {
-    $('#chat_loader').hide();
+    $('#chat_text').val('').focus();
     var cw = $('#chat_window');
-    cw.append('<div class="msg msg-waldo"><span class="blue-text text-darken-2">' + data.response.message + '</span></div>').scrollTop(cw.prop("scrollHeight"));
+    cw.append('<div class="msg msg-' + data.direction + '"><span>' + data.response.message + '</span></div>').scrollTop(cw.prop("scrollHeight"));
+    if (data.direction == 'to') {
+      $('#chat_loader').hide();
+    }
   }
 });
