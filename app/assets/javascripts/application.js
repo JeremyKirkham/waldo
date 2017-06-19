@@ -29,4 +29,18 @@ $(document).ready(function() {
       $('#chat_loader').show();
     }
   });
+
+  $('#delete_history').bind('ajax:beforeSend', function() {
+    $('#chat_loader').show();
+  });
+
+  $('#delete_history').bind('ajax:complete', function() {
+    setTimeout(function(){
+      $('#chat_loader').hide();
+      $('#chat_window').html('');
+      setTimeout(function(){
+        $('#chat_window').append('<div class="msg msg-to"><span class="blue-text text-darken-2">Hi, I\'m Waldo. What can I help you with?</span></div>');
+      }, 1300);
+    }, 1000);
+  });
 });

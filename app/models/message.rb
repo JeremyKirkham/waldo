@@ -23,8 +23,8 @@ class Message < ApplicationRecord
       region: Rails.application.secrets.aws_region
     )
     rsp = lex.post_text({
-      bot_name: "WaldoBot",
-      bot_alias: "Waldo",
+      bot_name: "CoffeeBot",
+      bot_alias: "Jarvis",
       user_id: user.auth0,
       input_text: response["message"],
     })
