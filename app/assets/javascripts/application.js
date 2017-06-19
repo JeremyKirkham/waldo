@@ -36,13 +36,19 @@ $(document).ready(function() {
     $.ajax({
       method: "POST",
       url: "/delete_history"
+    }).done(function( msg ) {
+      if (msg.completed == true) {
+        setTimeout(function(){
+          $('#chat_loader').hide();
+          $('#chat_window').html('');
+          setTimeout(function(){
+            $('#chat_window').append('<div class="msg msg-to"><span class="blue-text text-darken-2">Hi, I\'m Waldo. What can I help you with?</span></div>');
+          }, 1300);
+        }, 1000);
+      }
+      else {
+        $('#chat_loader').hide();
+      }
     });
-    setTimeout(function(){
-      $('#chat_loader').hide();
-      $('#chat_window').html('');
-      setTimeout(function(){
-        $('#chat_window').append('<div class="msg msg-to"><span class="blue-text text-darken-2">Hi, I\'m Waldo. What can I help you with?</span></div>');
-      }, 1300);
-    }, 1000);
   });
 });
